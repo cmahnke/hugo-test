@@ -1,0 +1,9 @@
+{{- $siteDir := "layouts/partials/shortcodes/metadata" -}}
+
+{{- $siteShortcodes := slice -}}
+
+{{- if and (fileExists $siteDir) (os.Stat $siteDir).IsDir -}}
+  {{- $siteShortcodes = readDir $siteDir -}}
+{{- else -}}
+  {{- warnf "Dir %s not found" $siteDir }}
+{{- end -}}
