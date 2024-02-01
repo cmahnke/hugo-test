@@ -1,0 +1,5 @@
+<div> this is a test partial!</div>
+
+{{ define "partials/shortcodes/test.html" }}
+  {{ jsonify (dict "css" (slice "css-test.css") "js" "test.js" ) }}
+{{ end }}

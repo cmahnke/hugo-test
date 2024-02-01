@@ -3,6 +3,8 @@ Test Repository for possible Hugo issues
 
 # Problems with `fileExists` and `readDir`
 
+See [#11917](https://github.com/gohugoio/hugo/issues/11917)
+
 To reproduce just run:
 ```
 hugo

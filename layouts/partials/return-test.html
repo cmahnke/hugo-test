@@ -1,0 +1,27 @@
+{{ $include := "partials/shortcodes/test.html" }}
+{{ $includes := unmarshal (partial $include .)}}
+{{ warnf "%#v" $includes }}
+{{ warnf "%s" (debug.Dump $.Site.Config) }}
+{{ if templates.Exists $include }}
+  {{ warnf "Template not found"  }}
+{{ end }}
+
+{{- if (isset $.Site.Params "CamelCase" ) -}}
+  {{- warnf "Using index: %s, using .Site.Params: %s" (index .Site.Params "CamelCase") ($.Site.Params.CamelCase)   -}}
+{{- end -}}
+
+{{- if (isset $.Site.Params "camelcase" ) -}}
+  {{- warnf "Using index: %s, using .Site.Params: %s" (index .Site.Params "CamelCase") ($.Site.Params.CamelCase)   -}}
+{{- end -}}
+
+{{- if $.Site.Params.CamelCase1  -}}
+  {{- errorf "Found!" -}}
+{{- else -}}
+  {{- warnf "Not found!" -}}
+{{- end -}}
+
+{{- return (partial "return-level2.html") -}}
+
+{{ define "partials/test.html" }}
+  {{ warnf "From patials/test.html" }}
+{{ end }}
