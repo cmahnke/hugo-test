@@ -1,4 +1,3 @@
-{{- partial "dir-check.html" . -}}
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,6 +37,19 @@
 {{- end }}
 
 {{- /* Styles */}}
+
+{{/* TEST: This is taken from https://gohugo.io/hugo-pipes/transpile-sass-to-css/
+            See https://github.com/gohugoio/hugo/issues/12072
+   */}}
+{{ $opts := dict
+  "transpiler" "dartsass"
+  "targetPath" "css/style.css"
+  "vars" site.Params.styles
+  "enableSourceMap" (not hugo.IsProduction)
+}}
+{{ with resources.Get "scss/base.scss" | toCSS $opts | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+{{ end }}
 
 {{- /* includes */}}
 {{- $includes := slice }}

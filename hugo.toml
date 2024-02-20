@@ -3,3 +3,9 @@ languageCode = 'en-us'
 title = 'My New Hugo Site'
 
 theme = 'PaperMod'
+
+[module]
+
+  [[module.mounts]]
+    source = "assets/scss"
+    target = "assets/scss"
