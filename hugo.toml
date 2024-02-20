@@ -6,3 +6,13 @@ theme = 'PaperMod'
 
 [params]
   CamelCase = true
+
+[module]
+
+  [[module.mounts]]
+    source = "themes/PaperMod/images/screenshot.png"
+    target = "static/images/screenshot.png"
+
+  [[module.mounts]]
+    source = "static"
+    target = "static"
