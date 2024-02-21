@@ -9,3 +9,11 @@ theme = 'PaperMod'
   [[module.mounts]]
     source = "assets/scss"
     target = "assets/scss"
+
+#  [[module.mounts]]
+#    source = "assets/css"
+#    target = "assets/css"
+
+  [[module.mounts]]
+    source = "themes/PaperMod/assets/css"
+    target = "assets/css"
