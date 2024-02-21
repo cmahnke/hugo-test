@@ -1,16 +1,31 @@
 Test Repository for possible Hugo issues
 ========================================
 
-# Problems with `fileExists` and `readDir`
+# Problems with `static` files and mounts
 
-See [#11917](https://github.com/gohugoio/hugo/issues/11917)
+## 0.122.0
 
-To reproduce just run:
 ```
-hugo
-mkdir -p themes/PaperMod/layouts/partials/shortcodes/metadata
-hugo
-```
+hugo-0.122.0
+Start building sites …
+hugo v0.122.0-b9a03bd59d5f71a529acb3e33f995e0ef332b3aa+extended darwin/arm64 BuildDate=2024-01-26T15:54:24Z
 
-## Possible cause
-`fileExists` and `os.Stat` seem to work on the underlaying union file system while `readDir` doesn't.
+WARN  Dir layouts/partials/shortcodes/metadata not found
+
+                   | EN  
+-------------------+-----
+  Pages            | 20  
+  Paginator pages  |  0  
+  Non-page files   |  0  
+  Static files     |  2  
+  Processed images |  0  
+  Aliases          |  7  
+  Sitemaps         |  1  
+  Cleaned          |  0  
+
+Total in 57 ms
+
+$ ls public/images/
+header.svg	screenshot.png
+
+```
