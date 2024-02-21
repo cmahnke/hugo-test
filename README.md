@@ -3,6 +3,22 @@ Test Repository for possible Hugo issues
 
 # Problems with `static` files and mounts
 
+## Config
+
+```
+[module]
+
+  [[module.mounts]]
+    source = "themes/PaperMod/images/screenshot.png"
+    target = "static/images/screenshot.png"
+
+  [[module.mounts]]
+    source = "static"
+    target = "static"
+```
+
+# Results
+
 ## 0.122.0
 
 ```
